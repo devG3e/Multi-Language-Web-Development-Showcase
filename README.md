@@ -2,6 +2,8 @@
 
 A comprehensive web application demonstrating proficiency in multiple programming languages and technologies for web development.
 
+NB: Worked on this project with some help from Gemini 2.5 Flash, ChatGPt & Cursor.
+
 ## 🚀 Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
