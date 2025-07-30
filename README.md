@@ -153,5 +153,5 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 ---
 
 **Created by**: Multi-Language Web Development Showcase  
-**Last Updated**: August 2023  
+**Last Updated**: July 2025
 **Version**: 1.0.0 
