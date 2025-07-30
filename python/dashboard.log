@@ -1,0 +1,4 @@
+2025-07-29 22:05:04,656 - __main__ - INFO - Database tables created successfully
+2025-07-29 22:05:04,658 - __main__ - INFO - Starting Flask Dashboard on 0.0.0.0:5000
+2025-07-29 22:05:04,659 - __main__ - INFO - Debug mode: False
+2025-07-29 22:05:04,665 - __main__ - ERROR - Error starting application: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte

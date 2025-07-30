@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Data Analysis Dashboard</title>
+    <meta name="description" content="Get in touch with our team for support and inquiries">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .page-header {
+            background: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-subtitle {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+            color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h5 {
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        
+        .contact-details p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            padding: 0.75rem;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        
+        .btn {
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .messages-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .message-item {
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .message-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .message-sender {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .message-time {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+        }
+        
+        .message-email {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .message-content {
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        
+        .spinner-border {
+            color: var(--primary-color);
+        }
+        
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .character-count {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            text-align: right;
+            margin-top: 0.25rem;
+        }
+        
+        .character-count.warning {
+            color: var(--warning-color);
+        }
+        
+        .character-count.danger {
+            color: var(--danger-color);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 1rem 0;
+            }
+            
+            .contact-card {
+                padding: 1rem;
+            }
+            
+            .contact-info {
+                padding: 1rem;
+            }
+            
+            .contact-info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-chart-line me-2"></i>
+                Data Dashboard
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/projects">
+                            <i class="fas fa-project-diagram me-1"></i>Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/analytics">
+                            <i class="fas fa-chart-bar me-1"></i>Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/contact">
+                            <i class="fas fa-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="page-title">Contact Us</h1>
+                    <p class="page-subtitle">Get in touch with our team for support and inquiries</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn btn-primary" onclick="refreshMessages()">
+                        <i class="fas fa-sync-alt me-1"></i>Refresh Messages
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="contact-card">
+                    <h3 class="mb-4">
+                        <i class="fas fa-envelope me-2"></i>Send us a Message
+                    </h3>
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" title="Close alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    
+                    <form method="POST" id="contactForm">
+                        {{ form.hidden_tag() }}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.name.label(class="form-label") }}
+                                    {{ form.name(class="form-control", placeholder="Enter your full name") }}
+                                    {% if form.name.errors %}
+                                        <div class="text-danger">{{ form.name.errors[0] }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.email.label(class="form-label") }}
+                                    {{ form.email(class="form-control", placeholder="Enter your email address") }}
+                                    {% if form.email.errors %}
+                                        <div class="text-danger">{{ form.email.errors[0] }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            {{ form.message.label(class="form-label") }}
+                            {{ form.message(class="form-control", rows="5", placeholder="Enter your message here...") }}
+                            <div class="character-count" id="charCount">0 / 1000 characters</div>
+                            {% if form.message.errors %}
+                                <div class="text-danger">{{ form.message.errors[0] }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="text-end">
+                            {{ form.submit(class="btn btn-primary") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <h4 class="mb-4">
+                        <i class="fas fa-info-circle me-2"></i>Contact Information
+                    </h4>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Email</h5>
+                            <p>support@dashboard.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Phone</h5>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Business Hours</h5>
+                            <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Address</h5>
+                            <p>123 Dashboard Street<br>Tech City, TC 12345</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Messages -->
+        <div class="row">
+            <div class="col-12">
+                <div class="messages-card">
+                    <h3 class="mb-4">
+                        <i class="fas fa-history me-2"></i>Recent Messages
+                    </h3>
+                    <div id="messages-container">
+                        <div class="loading">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading messages...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Load messages on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMessages();
+            setupFormValidation();
+        });
+        
+        // Load messages from API
+        async function loadMessages() {
+            try {
+                const response = await fetch('/api/contacts');
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayMessages(data.contacts);
+                } else {
+                    showError('Failed to load messages');
+                }
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                showError('Error loading messages');
+            }
+        }
+        
+        // Display messages
+        function displayMessages(messages) {
+            const container = document.getElementById('messages-container');
+            
+            if (messages.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                        <h4 class="text-muted">No messages yet</h4>
+                        <p class="text-muted">Be the first to send us a message!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const messagesHTML = messages.map(message => `
+                <div class="message-item">
+                    <div class="message-header">
+                        <div class="message-sender">${message.name}</div>
+                        <div class="message-time">${formatDate(message.created_at)}</div>
+                    </div>
+                    <div class="message-email">${message.email}</div>
+                    <div class="message-content">${message.message}</div>
+                </div>
+            `).join('');
+            
+            container.innerHTML = messagesHTML;
+        }
+        
+        // Setup form validation
+        function setupFormValidation() {
+            const messageField = document.querySelector('textarea[name="message"]');
+            const charCount = document.getElementById('charCount');
+            
+            if (messageField) {
+                messageField.addEventListener('input', function() {
+                    const length = this.value.length;
+                    const maxLength = 1000;
+                    
+                    charCount.textContent = `${length} / ${maxLength} characters`;
+                    
+                    // Update character count styling
+                    charCount.className = 'character-count';
+                    if (length > maxLength * 0.8) {
+                        charCount.classList.add('warning');
+                    }
+                    if (length > maxLength) {
+                        charCount.classList.add('danger');
+                    }
+                });
+            }
+        }
+        
+        // Refresh messages
+        function refreshMessages() {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Refreshing...';
+            button.disabled = true;
+            
+            loadMessages().finally(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+        
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }
+        
+        // Show error message
+        function showError(message) {
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-danger alert-dismissible fade show';
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.contact-card').insertBefore(alert, document.querySelector('.contact-card').firstChild);
+        }
+        
+        // Auto-refresh every 15 minutes (reduced from 5 minutes)
+        setInterval(loadMessages, 15 * 60 * 1000);
+    </script>
+</body>
+</html> 

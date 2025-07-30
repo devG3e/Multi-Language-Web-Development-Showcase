@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Web Development Showcase</title>
+    <meta name="description" content="A comprehensive showcase demonstrating proficiency in HTML, CSS, JavaScript, Perl, Ruby, PHP, C#, and Python">
+    <meta name="keywords" content="web development, programming, HTML, CSS, JavaScript, PHP, Python, Ruby, C#, Perl">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/components.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <i class="fas fa-code"></i>
+                    <span>Dev Showcase</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#game" class="nav-link">Game</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Multi-Language Web Development Showcase
+                </h1>
+                <p class="hero-subtitle">
+                    Demonstrating proficiency in 8 programming languages and modern web technologies
+                </p>
+                <div class="hero-tech-stack">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Ruby</span>
+                    <span class="tech-badge">C#</span>
+                    <span class="tech-badge">Perl</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-animation">
+                    <div class="code-line">const showcase = {</div>
+                    <div class="code-line">  languages: ['HTML', 'CSS', 'JS'],</div>
+                    <div class="code-line">  backend: ['PHP', 'Python', 'Ruby'],</div>
+                    <div class="code-line">  enterprise: ['C#', 'Perl']</div>
+                    <div class="code-line">};</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">What You'll Find Here</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Portfolio Projects</h3>
+                    <p>Showcase of diverse projects built with different technologies and frameworks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <h3>Dynamic Blog</h3>
+                    <p>PHP-powered blog system with MySQL database and interactive commenting.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Photo Gallery</h3>
+                    <p>Responsive image gallery with lightbox functionality and smooth animations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Interactive Game</h3>
+                    <p>Memory game built with vanilla JavaScript, featuring scoring and animations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Dashboard</h3>
+                    <p>Python Flask backend with Chart.js visualizations and real-time data updates.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Task Manager</h3>
+                    <p>C# ASP.NET application for project management and task tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio Projects</h2>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Portfolio items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="blog-grid" id="blog-grid">
+                <!-- Blog posts will be loaded from PHP backend -->
+            </div>
+            <div class="blog-link">
+                <a href="php/blog/" class="btn btn-outline">View All Posts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Gallery images will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="game">
+        <div class="container">
+            <h2 class="section-title">Memory Game</h2>
+            <p class="text-center mb-4">Match the cards to test your memory! Press 'S' to view statistics, 'R' to reset.</p>
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="score">Score: <span id="score">0</span></div>
+                    <div class="high-score">High Score: <span id="high-score">0</span></div>
+                    <div class="moves">Moves: <span id="moves">0</span></div>
+                    <div class="timer">Time: <span id="timer">00:00</span></div>
+                </div>
+                <div class="game-board" id="game-board">
+                    <!-- Game cards will be generated by JavaScript -->
+                </div>
+                <button class="btn btn-primary" id="new-game-btn">New Game</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2 class="section-title">Data Analysis Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="chart-container">
+                    <h3>Project Statistics</h3>
+                    <canvas id="projects-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Technology Usage</h3>
+                    <canvas id="tech-chart"></canvas>
+                </div>
+            </div>
+            <div class="dashboard-link">
+                                    <a href="python/" class="btn btn-outline">Full Dashboard</a>
+                    <a href="php/admin/login.php" class="btn btn-primary">Admin Panel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@devshowcase.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Multi-Language Web Development Showcase</h3>
+                    <p>Demonstrating proficiency in modern web technologies and programming languages.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#game">Game</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript ES6+</li>
+                        <li>PHP & MySQL</li>
+                        <li>Python Flask</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Multi-Language Web Development Showcase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/game.js"></script>
+    
+    <!-- Chart.js for dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html> 
